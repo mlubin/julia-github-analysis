@@ -1,7 +1,7 @@
 using DataFrames
 using Calendar
 
-issues = read_table("issuedata.wsv")
+issues = readtable("issuedata.wsv",separator=' ')
 issues["Month"] = map(s->month(Calendar.parse("yyyy-MM-dd",s)),issues["Date"])
 issues["Year"] = map(s->year(Calendar.parse("yyyy-MM-dd",s)),issues["Date"])
 issues["Date"] = map(s->Calendar.parse("yyyy-MM-dd",s),issues["Date"])
